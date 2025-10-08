@@ -9,6 +9,9 @@ public class Pokemon {
     int SpDefence;
     int level;
     String pokeName;
+    int pokeBalls;
+    boolean isBattling;
+
     //Default constructor
     public Pokemon(){
         health = 0;
@@ -20,9 +23,13 @@ public class Pokemon {
         SpDefence = 0;
         level = 1;
         pokeName = "";
+        pokeBalls = 2;
+        isBattling = false;
+
+
     }
     //parameter constructor
-    public Pokemon(int health, String type,int speed, int attack , int defence , int SpAttack, int SpDefence, int level, String pokeName){
+    public Pokemon(int health, String type,int speed, int attack , int defence , int SpAttack, int SpDefence, int level, String pokeName, int pokeBalls, boolean isBattling){
         this.health = health;
         this.type = type;
         this.speed = speed;
@@ -32,6 +39,8 @@ public class Pokemon {
         this.SpAttack = SpAttack;
         this.level = level;
         this.pokeName = pokeName;
+        this.pokeBalls = pokeBalls;
+        this.isBattling = isBattling;
 
     }
     //getters and setters
@@ -101,6 +110,32 @@ public class Pokemon {
         pokeName = PokeName;
     }
 
+    public String getPokeName() {
+        return pokeName;
+    }
+
+    public void setPokeBalls(int PokeBalls) {
+        pokeBalls = PokeBalls;
+    }
+
+    public int getPokeBalls() {
+        return pokeBalls;
+    }
+
+    public void setBattling(boolean battling) {
+        isBattling = battling;
+    }
+
+    public boolean isBattling() {
+        return isBattling;
+    }
+
+    //methods
+    public void Battle(){
+        if (isBattling == true){
+
+        }
+    }
     public void attack(){
 
     }
