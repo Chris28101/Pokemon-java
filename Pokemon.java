@@ -1,6 +1,5 @@
 public class Pokemon {
     //instance vars
-    String name;
     int health ;
     String type;
     int attack;
@@ -9,9 +8,9 @@ public class Pokemon {
     int SpAttack;
     int SpDefence;
     int level;
+    String pokeName;
     //Default constructor
     public Pokemon(){
-        name = "";
         health = 0;
         type = "";
         attack = 0;
@@ -20,10 +19,10 @@ public class Pokemon {
         SpAttack = 0;
         SpDefence = 0;
         level = 1;
+        pokeName = "";
     }
     //parameter constructor
-    public Pokemon(String name, int health, String type,int speed, int attack , int defence , int SpAttack, int SpDefence, int level){
-        this.name = name;
+    public Pokemon(int health, String type,int speed, int attack , int defence , int SpAttack, int SpDefence, int level, String pokeName){
         this.health = health;
         this.type = type;
         this.speed = speed;
@@ -32,16 +31,10 @@ public class Pokemon {
         this.SpDefence = SpDefence;
         this.SpAttack = SpAttack;
         this.level = level;
+        this.pokeName = pokeName;
 
     }
     //getters and setters
-    public void setName(String Name) {
-        name = Name;
-    }
-
-    public String getName() {
-        return name;
-    }
 
     public void setType(String Type) {
         type = Type;
@@ -102,6 +95,14 @@ public class Pokemon {
 
     public int getSpDefence() {
         return SpDefence;
+    }
+
+    public void setPokeName(String PokeName) {
+        pokeName = PokeName;
+    }
+
+    public void attack(){
+
     }
 
 }
