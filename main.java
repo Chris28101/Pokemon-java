@@ -55,7 +55,10 @@ public class main {
                 Thread.sleep(2000);
                 //giving enemy attributes
                 enemy.setHealth(40); enemy.setPokeName("Starly"); enemy.setLevel(1);
-                System.out.println(enemy.getPokeName() + );
+
+                System.out.println(enemy.getPokeName() + enemy.getLevel() + enemy.getHealth());
+                System.out.println("What move do you want to do?: ");
+
 
             }
 
