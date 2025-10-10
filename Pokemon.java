@@ -1,4 +1,9 @@
+import java.util.Random;
+import java.util.HashMap;
+import java.util.logging.Level;
+
 public class Pokemon {
+
     //instance vars
     int health ;
     String type;
@@ -11,6 +16,11 @@ public class Pokemon {
     String pokeName;
     int pokeBalls;
     boolean isBattling;
+     //making hashmap
+    HashMap<String,Integer> normal_Moves = new HashMap<>();
+    // making random object
+    Random rand = new Random();
+
 
     //Default constructor
     public Pokemon(){
@@ -25,7 +35,10 @@ public class Pokemon {
         pokeName = "";
         pokeBalls = 2;
         isBattling = false;
-
+        //moves
+        normal_Moves.put("Pound",attack= rand.nextInt(15,20 + 1));
+        normal_Moves.put("Tackle",attack = rand.nextInt(20,30 + 1));
+        normal_Moves.put("Scratch", attack = rand.nextInt( 30, 35 + 1));
 
     }
     //parameter constructor
@@ -54,8 +67,8 @@ public class Pokemon {
     public void setHealth(int Health){
         health = Health;
     }
-    public int getHealth(){
-       return health;
+    public String getHealth(){
+        return (" HP: " + health);
     }
 
     public void setAttack(int Attack) {
@@ -86,8 +99,8 @@ public class Pokemon {
         level = level1;
     }
 
-    public int getLevel() {
-        return level;
+    public String getLevel() {
+        return (" Level " + level);
     }
 
     public void setSpAttack(int spAttack) {
@@ -132,10 +145,11 @@ public class Pokemon {
 
     //methods
     public void Battle(){
-        if (isBattling == true){
+        isBattling = true;
+
 
         }
-    }
+
     public void attack(){
 
     }

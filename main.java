@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class main {
     public static void main(String[] args) throws InterruptedException {
         Pokemon poke = new Pokemon();
+        Pokemon enemy = new Pokemon();
         ArrayList<Pokemon> caughtPokemon = new ArrayList<Pokemon>();
         Scanner scan = new Scanner(System.in);
         System.out.println("              _                              \n" +
@@ -16,7 +17,7 @@ public class main {
         while (game_loop) {
             System.out.println("Enter your name: ");
             String name = scan.nextLine();
-            System.out.println("Proffesor rowan: Welcome " + name + "to the Sinnoh region!");
+            System.out.println("Proffesor rowan: Welcome " + name + " to the Sinnoh region!");
             Thread.sleep(2000);
             System.out.println("You can choose from 3 starter pokemon from this region");
             Thread.sleep(2000);
@@ -30,14 +31,17 @@ public class main {
             String pname = scan.nextLine();
             if (pname.equals("C"))
                 poke.setPokeName("Chimchar");
+                poke.setHealth(45);
             if(pname.equals("P"))
                 poke.setPokeName("Piplup");
+                poke.setHealth(50);
             if (pname.equals("T"))
+                poke.setHealth(55);
                 poke.setPokeName("Turtwig");
             caughtPokemon.add(poke);
-            System.out.println("Excellent choice your pokemon is " + poke.getPokeName() + "I hope you guys can have great adventures together");
+            System.out.println("Excellent choice your pokemon is " + poke.getPokeName() + " I hope you guys can have great adventures together");
             Thread.sleep(2000);
-            System.out.println("Before I send you out im giving you " + poke.getPokeBalls() + "Pokeballs");
+            System.out.println("Before I send you out im giving you " + poke.getPokeBalls() + " Pokeballs");
             Thread.sleep(2000);
             System.out.println("After you defeat a wild pokemon you can have a chance at catching the pokemon by throwing the pokeball at the pokemon");
             Thread.sleep(2000);
@@ -47,6 +51,11 @@ public class main {
             System.out.println("Would you like to battle this pokemon? y/n: ");
             String battle = scan.nextLine();
             if(battle.equals("y")){
+                System.out.println(poke.getPokeName() + poke.getLevel() + poke.getHealth());
+                Thread.sleep(2000);
+                //giving enemy attributes
+                enemy.setHealth(40); enemy.setPokeName("Starly"); enemy.setLevel(1);
+                System.out.println(enemy.getPokeName() + );
 
             }
 
