@@ -1,6 +1,8 @@
+import java.security.Key;
 import java.util.Scanner;
 import java.lang.Thread;
 import java.util.ArrayList;
+import java.util.Enumeration;
 public class main {
     public static void main(String[] args) throws InterruptedException {
         Pokemon poke = new Pokemon();
@@ -29,15 +31,18 @@ public class main {
             Thread.sleep(2000);
             System.out.println("So which pokemon would you like to pick (T, P or C?): ");
             String pname = scan.nextLine();
-            if (pname.equals("C"))
+            if (pname.equals("C")) {
                 poke.setPokeName("Chimchar");
                 poke.setHealth(45);
-            if(pname.equals("P"))
+            }
+            if(pname.equals("P")) {
                 poke.setPokeName("Piplup");
                 poke.setHealth(50);
-            if (pname.equals("T"))
+            }
+            if (pname.equals("T")) {
                 poke.setHealth(55);
                 poke.setPokeName("Turtwig");
+            }
             caughtPokemon.add(poke);
             System.out.println("Excellent choice your pokemon is " + poke.getPokeName() + " I hope you guys can have great adventures together");
             Thread.sleep(2000);
@@ -58,6 +63,14 @@ public class main {
 
                 System.out.println(enemy.getPokeName() + enemy.getLevel() + enemy.getHealth());
                 System.out.println("What move do you want to do?: ");
+                poke.doMove();
+                String nMove_Choice = scan.nextLine();
+
+                    poke.Attack(nMove_Choice);
+                    System.out.println("Starly: " + poke.getHealth());
+
+
+
 
 
             }

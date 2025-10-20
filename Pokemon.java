@@ -1,6 +1,7 @@
+import java.util.Collection;
+import java.util.List;
 import java.util.Random;
 import java.util.HashMap;
-import java.util.logging.Level;
 
 public class Pokemon {
 
@@ -20,6 +21,7 @@ public class Pokemon {
     HashMap<String,Integer> normal_Moves = new HashMap<>();
     // making random object
     Random rand = new Random();
+    //randMove
 
 
     //Default constructor
@@ -145,13 +147,20 @@ public class Pokemon {
 
     //methods
     public void Battle(){
-        isBattling = true;
+
 
 
         }
 
-    public void attack(){
-
+    public void Attack(String attackName){
+        attack = normal_Moves.get(attackName);
+        health -= attack;
     }
+    public void doMove() {
+        int count = 1;
+        for (String key : normal_Moves.keySet())
+            System.out.println(count++  + ". " + key);
+    }
+
 
 }
