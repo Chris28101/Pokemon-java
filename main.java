@@ -78,19 +78,27 @@ public class main {
                     System.out.println("Your hp is " + poke.getHealth());
 
 
-                    if (enemy.health<0){
+                    if (enemy.health<=0){
                         System.out.println(enemy.getPokeName()+ " fainted...");
 
-                        break;
+                        game_loop = false;
+                    }
+                    if (poke.health <= 0 ){
+                        game_loop = false;
                     }
                 }
 
                 System.out.println("You defeated " + enemy.getPokeName()+ " would you like to try to catch " + poke.getPokeName() );
                 System.out.println("y or n?");
                 String caught = scan.nextLine();
-                if(caught.equals( "y")){
-                    player.catchEm(enemy);
+                while(player.pokeBalls > 0) {
+                    if (caught.equals("y")) {
+                        player.catchEm(enemy);
+                    }
+                    System.out.println("you have " +  player.pokeBalls + " left do you want to go again (y/n)");
+                    String try = scan.b
                 }
+
 
 
 

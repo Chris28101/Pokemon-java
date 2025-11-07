@@ -33,7 +33,7 @@ public class Player {
             return false;
         }
         System.out.println("You throw a pokeball and cross your fingers...");
-        pokeBalls--;
+        pokeBalls-=1;
         if (randChoice == 1) {
             caughtPokemon.add(target);
             System.out.println("You caught " + target.getPokeName() + "!");
