@@ -1,13 +1,14 @@
 import java.security.Key;
 import java.util.Scanner;
 import java.lang.Thread;
-import java.util.ArrayList;
+
 import java.util.Enumeration;
 public class main {
     public static void main(String[] args) throws InterruptedException {
         Pokemon poke = new Pokemon();
         Pokemon enemy = new Pokemon();
-        ArrayList<Pokemon> caughtPokemon = new ArrayList<Pokemon>();
+        Player player = new Player();
+
         Scanner scan = new Scanner(System.in);
         System.out.println("              _                              \n" +
                 "  _ __   ___ | | _____ _ __ ___   ___  _ __  \n" +
@@ -30,7 +31,7 @@ public class main {
             System.out.println("T.Turtwig the grass type");
             Thread.sleep(2000);
             System.out.println("So which pokemon would you like to pick (T, P or C?): ");
-            String pname = scan.nextLine();
+            String pname = scan.nextLine().toUpperCase();
             if (pname.equals("C")) {
                 poke.setPokeName("Chimchar");
                 poke.setHealth(45);
@@ -43,10 +44,10 @@ public class main {
                 poke.setHealth(55);
                 poke.setPokeName("Turtwig");
             }
-            caughtPokemon.add(poke);
+            player.caughtPokemon.add(poke);
             System.out.println("Excellent choice your pokemon is " + poke.getPokeName() + " I hope you guys can have great adventures together");
             Thread.sleep(2000);
-            System.out.println("Before I send you out im giving you " + poke.getPokeBalls() + " Pokeballs");
+            System.out.println("Before I send you out im giving you " + player.getPokeBalls() + " Pokeballs");
             Thread.sleep(2000);
             System.out.println("After you defeat a wild pokemon you can have a chance at catching the pokemon by throwing the pokeball at the pokemon");
             Thread.sleep(2000);
@@ -59,15 +60,38 @@ public class main {
                 System.out.println(poke.getPokeName() + poke.getLevel() + poke.getHealth());
                 Thread.sleep(2000);
                 //giving enemy attributes
-                enemy.setHealth(40); enemy.setPokeName("Starly"); enemy.setLevel(1);
+                enemy.setHealth(35); enemy.setPokeName("Starly"); enemy.setLevel(1);
 
                 System.out.println(enemy.getPokeName() + enemy.getLevel() + enemy.getHealth());
-                System.out.println("What move do you want to do?: ");
-                poke.doMove();
-                String nMove_Choice = scan.nextLine();
+                while (poke.health > 0) {
+                    System.out.println("What move do you want to do?: ");
+                    poke.doMove();
+                    String nMove_Choice = scan.nextLine();
+                    System.out.println("You used " + nMove_Choice);
+                    poke.Attack(enemy,nMove_Choice);
 
-                    poke.Attack(nMove_Choice);
-                    System.out.println("Starly: " + poke.getHealth());
+                    System.out.println(enemy.getPokeName() + enemy.getHealth());
+
+
+                    System.out.println(enemy.getPokeName() + " Used pound");
+                    enemy.Attack(poke, "Pound");
+                    System.out.println("Your hp is " + poke.getHealth());
+
+
+                    if (enemy.health<0){
+                        System.out.println(enemy.getPokeName()+ " fainted...");
+
+                        break;
+                    }
+                }
+
+                System.out.println("You defeated " + enemy.getPokeName()+ " would you like to try to catch " + poke.getPokeName() );
+                System.out.println("y or n?");
+                String caught = scan.nextLine();
+                if(caught.equals( "y")){
+                    player.catchEm(enemy);
+                }
+
 
 
 

@@ -2,6 +2,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Pokemon {
 
@@ -15,7 +16,7 @@ public class Pokemon {
     int SpDefence;
     int level;
     String pokeName;
-    int pokeBalls;
+
     boolean isBattling;
      //making hashmap
     HashMap<String,Integer> normal_Moves = new HashMap<>();
@@ -23,7 +24,7 @@ public class Pokemon {
     Random rand = new Random();
     //randMove
 
-
+    ArrayList<Pokemon> caughtPokemon = new ArrayList<Pokemon>();
     //Default constructor
     public Pokemon(){
         health = 0;
@@ -35,7 +36,6 @@ public class Pokemon {
         SpDefence = 0;
         level = 1;
         pokeName = "";
-        pokeBalls = 2;
         isBattling = false;
         //moves
         normal_Moves.put("Pound",attack= rand.nextInt(15,20 + 1));
@@ -54,7 +54,6 @@ public class Pokemon {
         this.SpAttack = SpAttack;
         this.level = level;
         this.pokeName = pokeName;
-        this.pokeBalls = pokeBalls;
         this.isBattling = isBattling;
 
     }
@@ -129,13 +128,6 @@ public class Pokemon {
         return pokeName;
     }
 
-    public void setPokeBalls(int PokeBalls) {
-        pokeBalls = PokeBalls;
-    }
-
-    public int getPokeBalls() {
-        return pokeBalls;
-    }
 
     public void setBattling(boolean battling) {
         isBattling = battling;
@@ -152,15 +144,21 @@ public class Pokemon {
 
         }
 
-    public void Attack(String attackName){
+    public void Attack(Pokemon target, String attackName){
         attack = normal_Moves.get(attackName);
-        health -= attack;
+        int damage = normal_Moves.get(attackName);
+        target.health -= damage;
+        System.out.println(target.pokeName + " took " + damage + " damage");
     }
     public void doMove() {
         int count = 1;
         for (String key : normal_Moves.keySet())
             System.out.println(count++  + ". " + key);
     }
+    // ill incorperate this later
+//    public void randAttack(){
+//
+//    }
 
 
 }
